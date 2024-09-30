@@ -1,4 +1,13 @@
-# Práctica 1.1 - Git. Trabajando con ramas y uniones
+# Práctica 1: Git. Trabajando con ramas y uniones
+
+!!! success "Objectius"
+
+     En esta pràctica desplegarem una pàgina web estàtica amb *MkDocs en *GitHub *Pages. Com esta que estàs veient. Per a això, hauràs de seguir els següents passos:
+
+      - Aprendràs el concepte de branca.
+      - La gestió i el cicle de vida (creació, modificació, esborrament, …) de branques.
+      - Aprendràs el concepte d'unió (*merge) que ens possibilita la fusió de branques.
+      - A solucionar els possibles conflictes que poden aparéixer en el moment del *merge.
 
 ## Entrega
 

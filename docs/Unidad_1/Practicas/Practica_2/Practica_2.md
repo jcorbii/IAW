@@ -1,4 +1,11 @@
-# Práctica 1.2 - Pull Request. ¿Cómo colaborar en un proyecto de software libre?
+# Práctica 2: Pull Request. ¿Cómo colaborar en un proyecto de software libre?
+
+!!! success "Objectius"
+
+      En esta práctica vamos a desplegar una página web estática con MkDocs en GitHub Pages. Como esta que estás viendo. Para ello, deberás seguir los siguientes pasos:
+
+       - Conocer el concepto de Pull Request.
+       - Conocer la metodología para colaborar en proyectos alojados en GitHub realizando Pull Requests.
 
 ## Entregar
 
