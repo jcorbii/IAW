@@ -1,2 +1,0 @@
-Este es el fichero2.txt
-Modificando el fichero2
