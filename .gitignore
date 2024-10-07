@@ -1,9 +1,0 @@
-# Ignorar todo
-*
-
-# No ignorar estas carpetas
-!Unidad_1/
-!Unidad_2/
-
-# Ignorar la carpeta "site" y "docs"
-docs/
