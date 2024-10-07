@@ -7,3 +7,6 @@
 
 # Ignorar la carpeta "site" y "docs"
 docs/
+
+# Ignorar el archivo mkdocs.yml
+# mkdocs.yml
