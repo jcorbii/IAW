@@ -59,7 +59,7 @@ $ openssl x509 -in /etc/ssl/certs/apache-selfsigned.crt -noout -subject
 ```bash
 $ openssl x509 -in /etc/ssl/certs/apache-selfsigned.crt -noout -dates
 ```
-![alt text](iimg/mage-6.png)
+![alt text](img/image-6.png)
 ### 1.6 Configuración de un VirtualHost con SSL/TSL en el servidor web Apache.
 **Paso 1**
 
