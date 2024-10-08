@@ -7,7 +7,7 @@ OPENSSL_PROVINCE="Valencia"
 OPENSSL_LOCALITY="Tavernes de la Valldigna"
 OPENSSL_ORGANIZATION="IES Jaume II el Just"
 OPENSSL_ORGUNIT="Departamento de Informatica"
-OPENSSL_COMMON_NAME="practica-https.local"
+OPENSSL_COMMON_NAME="iaw245.org"
 OPENSSL_EMAIL="jorcormic@alu.edu.gva.es"
 
 # Creamos el certificado autofirmado

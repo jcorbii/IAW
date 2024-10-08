@@ -24,7 +24,7 @@ Este es el comando que vamos a utilizar:
 ```bash
 $ sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/apache-selfsigned.key -out /etc/ssl/certs/apache-selfsigned.crt
 ```
-![alt text](<img/Captura desde 2024-10-07 13-44-59.png>)
+![alt text](img/image-4.png)
 
 Este comando nos genera un certificado autofirmado con una clave privada y un certificado autofirmado.
 ### 1.3 Cómo automatizar la creación de un certificado autofirmado
@@ -42,7 +42,7 @@ OPENSSL_PROVINCE="Valencia"
 OPENSSL_LOCALITY="Tavernes de la Valldigna"
 OPENSSL_ORGANIZATION="IES Jaume II el Just"
 OPENSSL_ORGUNIT="Departamento de Informatica"
-OPENSSL_COMMON_NAME="practica-https.local"
+OPENSSL_COMMON_NAME="iaw245.org"
 OPENSSL_EMAIL="jorcormic@alu.edu.gva.es"
 
 # Creamos el certificado autofirmado
@@ -54,18 +54,18 @@ sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/privat
 ```bash
 $ openssl x509 -in /etc/ssl/certs/apache-selfsigned.crt -noout -subject
 ```
-
+![alt text](img/image-5.png)
 ### 1.5 Cómo consultar la fecha de caducidad del certificado
 ```bash
 $ openssl x509 -in /etc/ssl/certs/apache-selfsigned.crt -noout -dates
 ```
-
+![alt text](iimg/mage-6.png)
 ### 1.6 Configuración de un VirtualHost con SSL/TSL en el servidor web Apache.
 **Paso 1**
 
 Editamos el archivo de configuración del virtual host donde queremos habilitar el tráfico HTTPS.
 
-En nuestro caso, utilizaremos el archivo de configuración que tiene Apache por defecto para SSL/TLS, que está en la ruta:/etc/apache2/sites-available/default-ssl.conf.
+En nuestro caso, utilizaremos el archivo de configuración que tiene Apache por defecto para SSL/TLS, que está en la ruta:**/etc/apache2/sites-available/default-ssl.conf.**
 
 El contenido del archivo será el siguiente:
 ```bash
@@ -78,6 +78,7 @@ El contenido del archivo será el siguiente:
         SSLCertificateKeyFile /etc/ssl/private/apache-selfsigned.key
 </VirtualHost>
 ```
+![alt text](img/image-2.png)
 
 Las directivas que hemos configurado son:
 - : Indica que este virtual host escuchará en el puerto **443** (HTTPS).
@@ -120,7 +121,7 @@ El contenido del archivo será el siguiente:
     RewriteRule^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 </VirtualHost>
 ```
-
+![alt text](img/image.png)
 **Paso 5**
 
 Para que el servidor web Apache pueda hacer la redirección de HTTP a HTTPS es necesario habilitar el módulo rewrite en Apache.
@@ -143,8 +144,9 @@ Una vez llegado a este punto, es necesario comprobar que el puerto 443 está abi
 
 **Paso 8**
 
-Accede desde un navegador web al nombre de dominio que acabas de configurar. En nuesro caso será: https://practica-https.local.
+Accede desde un navegador web al nombre de dominio que acabas de configurar. En nuesro caso será: https://iaw245.org
 
+![alt text](img/image-1.png)
 
 
 
