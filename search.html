@@ -12,15 +12,15 @@
         
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-            <link rel="stylesheet" href="/assets/css/darcula-highlight.min.css">
+            <link rel="stylesheet" href="./assets/css/darcula-highlight.min.css">
 
-        <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/assets/css/dracula-ui.min.css">
-        <link rel="stylesheet" href="/assets/css/mkdocs.min.css">
-            <link href="/css/estil.css" rel="stylesheet">
+        <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./assets/css/dracula-ui.min.css">
+        <link rel="stylesheet" href="./assets/css/mkdocs.min.css">
+            <link href="./css/estil.css" rel="stylesheet">
 
         
-            <link  rel="icon" type="image/x-icon" href="/img/image.webp">
+            <link  rel="icon" type="image/x-icon" href="./img/image.webp">
         
             <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
                 <script>hljs.initHighlightingOnLoad();</script>
@@ -42,7 +42,7 @@
 
     <div class="p-4">
         
-            <img class="logo" src="/img/image.webp" height="150px">
+            <img class="logo" src="./img/image.webp" height="150px">
         
 
         <div class="drac-text-center">
@@ -69,14 +69,14 @@
         <ul class="mb-5 drac-list drac-list-none">
             
             <li class="drac-box">
-                <a href="/."
+                <a href="./."
                     class="
                     drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
                     Implantación de Aplicaciones Web
                 </a>
             </li>
             <li class="drac-box">
-                <a href="/."
+                <a href="./."
                     class="
                     drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
                     data-bs-toggle="collapse" data-bs-target="#unidad-1-introducción-a-la-implantación-de-aplicaciones-web-collapse" aria-expanded="false">
@@ -96,7 +96,7 @@
             <ul class="mb-5 drac-list drac-list-none">
                     
     <li class="drac-box-ternary">
-        <a href="/Unidad_1/Practicas/Practica_1/Practica_1/"
+        <a href="./Unidad_1/Practicas/Practica_1/Practica_1/"
             class="
             drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
             Práctica 1: Git. Trabajando con ramas y uniones
@@ -104,7 +104,7 @@
     </li>
                     
     <li class="drac-box-ternary">
-        <a href="/Unidad_1/Practicas/Practica_2/Practica_2/"
+        <a href="./Unidad_1/Practicas/Practica_2/Practica_2/"
             class="
             drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
             Práctica 2: ¿Cómo colaborar en un proyecto de software libre? ¿Qué es un Pull Request (PR)?
@@ -112,7 +112,7 @@
     </li>
                     
     <li class="drac-box-ternary">
-        <a href="/Unidad_1/Practicas/Practica_3/Practica_3/"
+        <a href="./Unidad_1/Practicas/Practica_3/Practica_3/"
             class="
             drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
             Práctica 3: - Despliegue de una página web estática con Mkdocs y GitHub Pages
@@ -125,7 +125,7 @@
                 </div>
             </li>
             <li class="drac-box">
-                <a href="/."
+                <a href="./."
                     class="
                     drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
                     data-bs-toggle="collapse" data-bs-target="#unidad-2-implantación-de-aplicaciones-web-php-collapse" aria-expanded="false">
@@ -145,7 +145,7 @@
             <ul class="mb-5 drac-list drac-list-none">
                     
     <li class="drac-box-ternary">
-        <a href="/Unidad_2/Practicas/Practica_1/Practica_1/"
+        <a href="./Unidad_2/Practicas/Practica_1/Practica_1/"
             class="
             drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
             Práctica 1: Implantación de una web estática con Apache
@@ -153,7 +153,7 @@
     </li>
                     
     <li class="drac-box-ternary">
-        <a href="/Unidad_2/Practicas/Practica_2/Practica_2/"
+        <a href="./Unidad_2/Practicas/Practica_2/Practica_2/"
             class="
             drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
             Practica 2: Apache Práctica 2. Certificado SSL/TLS
@@ -195,7 +195,7 @@
 
                     <!-- block search -->
                     <li class="nav-item"><div role="search" class="search-box">
-	<form id="rtd-search-form" class="wy-form" action="//search.html" method="get">
+	<form id="rtd-search-form" class="wy-form" action="./search.html" method="get">
 		<input type="text" name="q" class="drac-input drac-input-search drac-input-white drac-text-white drac-bg-black-secondary"
 		placeholder="Search docs" title="Type search term here" />
 	</form>
@@ -218,14 +218,24 @@
             <!-- endblock -->
 
             <!-- block content -->
-    <section class="p-md-5 section-content">
-        <article>
-            <p></p>
-            <h1>404</h1>
-            <hr>
-            <p><strong>Page not found</strong></p>
-        </article>
-    </section>
+	<section class="p-md-5 content-search">
+		<article>
+			<p></p>
+			<h1 id="search">Search Results</h1>
+			<hr>
+
+			<form id="content_search" action="search.html">
+				<span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+				<input name="q" id="mkdocs-search-query" type="text" class="drac-input drac-input-purple drac-text-white search_input search-query ui-autocomplete-input"
+					placeholder="Search the Docs" autocomplete="off" autofocus title="Type search term here">
+			</form>
+			
+			<div id="mkdocs-search-results" class="search-results" data-no-results-text="No results found">
+				Searching...
+			</div>
+
+		</article>
+	</section>
 
             <!-- endblock -->
 
@@ -243,11 +253,11 @@
 
     </main>
 
-        <script>var base_url = '/';</script>
-        <script src="/assets/js/jquery-3.3.1.slim.min.js"></script>
-        <script src="/assets/js/bootstrap.bundle.min.js"></script>
-        <script src="/assets/js/mkdocs.js"></script>
-			<script src="/search/main.js" defer></script>
+        <script>var base_url = '.';</script>
+        <script src="./assets/js/jquery-3.3.1.slim.min.js"></script>
+        <script src="./assets/js/bootstrap.bundle.min.js"></script>
+        <script src="./assets/js/mkdocs.js"></script>
+			<script src="./search/main.js" defer></script>
 
 </body>
 
