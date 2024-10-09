@@ -1,0 +1,815 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../img/logo_ieseljust.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.0">
+    
+    
+      
+        <title>Practica 2: Certificado SSL/TLS - IAW - 2ASIX</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.9f615399.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#practica-2-certificado-ssltls" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="IAW - 2ASIX" class="md-header__button md-logo" aria-label="IAW - 2ASIX" data-md-component="logo">
+      
+  <img src="../../../img/logo_ieseljust.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            IAW - 2ASIX
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Practica 2: Certificado SSL/TLS
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Implantación de Aplicaciones Web
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Unidad_1/Practicas/Practica_1/Practica_1/" class="md-tabs__link">
+          
+  
+  Unidad 1 Introducción a la implantación de aplicaciones web
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../Practica_1/Practica_1/" class="md-tabs__link">
+          
+  
+  Unidad 2 Implantación de aplicaciones web PHP
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="IAW - 2ASIX" class="md-nav__button md-logo" aria-label="IAW - 2ASIX" data-md-component="logo">
+      
+  <img src="../../../img/logo_ieseljust.png" alt="logo">
+
+    </a>
+    IAW - 2ASIX
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Implantación de Aplicaciones Web
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Unidad 1 Introducción a la implantación de aplicaciones web
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Unidad 1 Introducción a la implantación de aplicaciones web
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Practicas
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Practicas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Unidad_1/Practicas/Practica_1/Practica_1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Práctica 1: Git. Trabajando con ramas y uniones
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Unidad_1/Practicas/Practica_2/Practica_2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Práctica 2: ¿Cómo colaborar en un proyecto de software libre? ¿Qué es un Pull Request (PR)?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Unidad_1/Practicas/Practica_3/Practica_3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Práctica 3: - Despliegue de una página web estática con Mkdocs y GitHub Pages
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Unidad 2 Implantación de aplicaciones web PHP
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Unidad 2 Implantación de aplicaciones web PHP
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Practicas
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Practicas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Practica_1/Practica_1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Práctica 1: Implantación de una web estática con Apache
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Practica_2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Practica 2: Apache Práctica 2. Certificado SSL/TLS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-https-creacion-y-configuracion-de-un-certificado-ssltls-autofirmado-en-apache" class="md-nav__link">
+    1.  HTTPS. Creación y configuración de un certificado SSL/TLS autofirmado en Apache
+  </a>
+  
+    <nav class="md-nav" aria-label="1. HTTPS. Creación y configuración de un certificado SSL/TLS autofirmado en Apache">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-instalacion-del-servidor-web-apache" class="md-nav__link">
+    1.1 Instalación del servidor web Apache
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-creacion-del-certificado-autofirmado" class="md-nav__link">
+    1.2 Creación del certificado autofirmado
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-como-automatizar-la-creacion-de-un-certificado-autofirmado" class="md-nav__link">
+    1.3 Cómo automatizar la creación de un certificado autofirmado
+  </a>
+  
+    <nav class="md-nav" aria-label="1.3 Cómo automatizar la creación de un certificado autofirmado">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#descarga-de-scripts-de-la-practica-2-unidad-2" class="md-nav__link">
+    Descarga de Scripts de la Práctica 2 - Unidad 2
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-como-consultar-la-informacion-del-sujeto-del-certificado" class="md-nav__link">
+    1.4 Cómo consultar la información del sujeto del certificado
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-como-consultar-la-fecha-de-caducidad-del-certificado" class="md-nav__link">
+    1.5 Cómo consultar la fecha de caducidad del certificado
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16-configuracion-de-un-virtualhost-con-ssltsl-en-el-servidor-web-apache" class="md-nav__link">
+    1.6 Configuración de un VirtualHost con SSL/TSL en el servidor web Apache.
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="practica-2-certificado-ssltls">Practica 2: Certificado SSL/TLS</h1>
+<div class="admonition success">
+<p class="admonition-title">Objetivos de la práctica</p>
+<ul>
+<li>Crear un certificado SSL/TLS autofirmado con la herramienta openssl.</li>
+<li>Configurar el servidor web Apache para que utilice el certificado SSL/TLS autofirmado.</li>
+</ul>
+</div>
+<h2 id="1-https-creacion-y-configuracion-de-un-certificado-ssltls-autofirmado-en-apache">1.  HTTPS. Creación y configuración de un certificado SSL/TLS autofirmado en Apache</h2>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>El proceso de creación de un certificado autofirmado consta de los siguientes pasos:</p>
+<ol>
+<li>Crear una clave privada y un certificado autofirmado.</li>
+<li>Configurar la clave privada y el certificado autofirmado en el servidor web.</li>
+</ol>
+</div>
+<h3 id="11-instalacion-del-servidor-web-apache">1.1 Instalación del servidor web Apache</h3>
+<p>En primer lugar deberemos tener instado un servidor web Apache en nuestra máquina.</p>
+<h3 id="12-creacion-del-certificado-autofirmado">1.2 Creación del certificado autofirmado</h3>
+<p>Para crear un certificado autofirmado vamos a utilizar la utilid openssl.</p>
+<p>Este es el comando que vamos a utilizar:
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>openssl<span class="w"> </span>req<span class="w"> </span>-x509<span class="w"> </span>-nodes<span class="w"> </span>-days<span class="w"> </span><span class="m">365</span><span class="w"> </span>-newkey<span class="w"> </span>rsa:2048<span class="w"> </span>-keyout<span class="w"> </span>/etc/ssl/private/apache-selfsigned.key<span class="w"> </span>-out<span class="w"> </span>/etc/ssl/certs/apache-selfsigned.crt
+</code></pre></div>
+<img alt="alt text" src="img/image-4.png" /></p>
+<p>Este comando nos genera un certificado autofirmado con una clave privada y un certificado autofirmado.</p>
+<h3 id="13-como-automatizar-la-creacion-de-un-certificado-autofirmado">1.3 Cómo automatizar la creación de un certificado autofirmado</h3>
+<p>Para automatizar la creación de un certificado autofirmado desde un script de Bash, podemos hacer uso del parámetro -subj que nos permite pasar los datos se adjuntan al certificado como argumentos desde la línea de comandos.</p>
+<p><strong>Ejemplo:</strong>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="nb">set</span><span class="w"> </span>-x
+
+<span class="c1"># Configuramos las variables con los datos que necesita el certificado</span>
+<span class="nv">OPENSSL_COUNTRY</span><span class="o">=</span><span class="s2">&quot;ES&quot;</span>
+<span class="nv">OPENSSL_PROVINCE</span><span class="o">=</span><span class="s2">&quot;Valencia&quot;</span>
+<span class="nv">OPENSSL_LOCALITY</span><span class="o">=</span><span class="s2">&quot;Tavernes de la Valldigna&quot;</span>
+<span class="nv">OPENSSL_ORGANIZATION</span><span class="o">=</span><span class="s2">&quot;IES Jaume II el Just&quot;</span>
+<span class="nv">OPENSSL_ORGUNIT</span><span class="o">=</span><span class="s2">&quot;Departamento de Informatica&quot;</span>
+<span class="nv">OPENSSL_COMMON_NAME</span><span class="o">=</span><span class="s2">&quot;iaw245.org&quot;</span>
+<span class="nv">OPENSSL_EMAIL</span><span class="o">=</span><span class="s2">&quot;jorcormic@alu.edu.gva.es&quot;</span>
+
+<span class="c1"># Creamos el certificado autofirmado</span>
+
+sudo<span class="w"> </span>openssl<span class="w"> </span>req<span class="w"> </span>-x509<span class="w"> </span>-nodes<span class="w"> </span>-days<span class="w"> </span><span class="m">365</span><span class="w"> </span>-newkey<span class="w"> </span>rsa:2048<span class="w"> </span>-keyout<span class="w"> </span>/etc/ssl/private/apache-selfsigned.key<span class="w"> </span>-out<span class="w"> </span>/etc/ssl/certs/apache-selfsigned.crt<span class="w"> </span>-subj<span class="w"> </span><span class="s2">&quot;/C=</span><span class="nv">$OPENSSL_COUNTRY</span><span class="s2">/ST=</span><span class="nv">$OPENSSL_PROVINCE</span><span class="s2">/L=</span><span class="nv">$OPENSSL_LOCALITY</span><span class="s2">/O=</span><span class="nv">$OPENSSL_ORGANIZATION</span><span class="s2">/OU=</span><span class="nv">$OPENSSL_ORGUNIT</span><span class="s2">/CN=</span><span class="nv">$OPENSSL_COMMON_NAME</span><span class="s2">/emailAddress=</span><span class="nv">$OPENSSL_EMAIL</span><span class="s2">&quot;</span>
+</code></pre></div></p>
+<h4 id="descarga-de-scripts-de-la-practica-2-unidad-2">Descarga de Scripts de la Práctica 2 - Unidad 2</h4>
+<p>Aquí puedes descargar los scripts necesarios para la práctica.</p>
+<p><a class="md-button md-button--primary" href="scripts/install_lamp.sh">Descargar install_lamp.sh</a></p>
+<h3 id="14-como-consultar-la-informacion-del-sujeto-del-certificado">1.4 Cómo consultar la información del sujeto del certificado</h3>
+<p><div class="highlight"><pre><span></span><code>$<span class="w"> </span>openssl<span class="w"> </span>x509<span class="w"> </span>-in<span class="w"> </span>/etc/ssl/certs/apache-selfsigned.crt<span class="w"> </span>-noout<span class="w"> </span>-subject
+</code></pre></div>
+<img alt="alt text" src="img/image-5.png" /></p>
+<h3 id="15-como-consultar-la-fecha-de-caducidad-del-certificado">1.5 Cómo consultar la fecha de caducidad del certificado</h3>
+<p><div class="highlight"><pre><span></span><code>$<span class="w"> </span>openssl<span class="w"> </span>x509<span class="w"> </span>-in<span class="w"> </span>/etc/ssl/certs/apache-selfsigned.crt<span class="w"> </span>-noout<span class="w"> </span>-dates
+</code></pre></div>
+<img alt="alt text" src="img/image-6.png" /></p>
+<h3 id="16-configuracion-de-un-virtualhost-con-ssltsl-en-el-servidor-web-apache">1.6 Configuración de un VirtualHost con SSL/TSL en el servidor web Apache.</h3>
+<p><strong>Paso 1</strong></p>
+<p>Editamos el archivo de configuración del virtual host donde queremos habilitar el tráfico HTTPS.</p>
+<p>En nuestro caso, utilizaremos el archivo de configuración que tiene Apache por defecto para SSL/TLS, que está en la ruta:<strong>/etc/apache2/sites-available/default-ssl.conf.</strong></p>
+<p>El contenido del archivo será el siguiente:
+<div class="highlight"><pre><span></span><code>&lt;VirtualHost<span class="w"> </span>*:443&gt;
+<span class="w">        </span>ServerName<span class="w"> </span>iaw2425.org
+<span class="w">        </span>DocumentRoot<span class="w"> </span>/var/www/www.iaw2425.org/site
+<span class="w">        </span>DirectoryIndex<span class="w"> </span>index.php<span class="w"> </span>index.html
+<span class="w">        </span>SSLEngine<span class="w"> </span>on
+<span class="w">        </span>SSLCertificateFile<span class="w"> </span>/etc/ssl/certs/apache-selfsigned.crt
+<span class="w">        </span>SSLCertificateKeyFile<span class="w"> </span>/etc/ssl/private/apache-selfsigned.key
+&lt;/VirtualHost&gt;
+</code></pre></div>
+<img alt="alt text" src="img/image-2.png" /></p>
+<p>Las directivas que hemos configurado son:
+- : Indica que este virtual host escuchará en el puerto <strong>443</strong> (HTTPS).
+- <strong>ServerName</strong>: Indica el nombre de dominio y se utiliza para indicar al servidor web Apache qué peticiones debe servir para este virtual host. En nuestro ejemplo estamos utilizando el dominio practicahttps.local.
+- <strong>DocumentRoot</strong>: Es la ruta donde se encuentra el directorio raíz del host virtual.
+- <strong>SSLEngine on</strong>: Configuramos que este virtual host utilizará SSL/TLS.
+- <strong>SSLCertificateFile</strong>: Indica la ruta donde se encuentra el certificado autofirmado.
+- <strong>SSLCertificateKeyFile</strong>: Indica la ruta donde se encuentra la clave privada del certificado autofirmado.</p>
+<p><strong>Paso 2</strong></p>
+<p>Habilitamos el virtual host que acabamos de configurar.
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>a2ensite<span class="w"> </span>default-ssl.conf
+</code></pre></div></p>
+<p><strong>Paso 3</strong></p>
+<p>Habilitamos el módulo SSL en Apache.
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>a2enmod<span class="w"> </span>ssl
+</code></pre></div></p>
+<p><strong>Paso 4</strong></p>
+<p>Configuramos el virtual host de HTTP para que redirija todo el tráfico a HTTPS.</p>
+<p>En nuestro caso, el virtual host que maneja las peticiones HTTP está en el archivo de configuración que utiliza</p>
+<p>Apache por defecto para el puerto 80 :/etc/apache2/sites-available/000-<strong>default</strong>.conf.</p>
+<p>El contenido del archivo será el siguiente:
+<div class="highlight"><pre><span></span><code>&lt;VirtualHost<span class="w"> </span>*:80&gt;
+<span class="w">    </span><span class="c1">#ServerName practica-https.local</span>
+<span class="w">    </span>DocumentRoot/var/www/html
+<span class="w">    </span><span class="c1">#Redirige alpuerto 443 (HTTPS)</span>
+<span class="w">    </span>RewriteEngineOn
+<span class="w">    </span>RewriteCond%<span class="o">{</span>HTTPS<span class="o">}</span><span class="w"> </span>off
+<span class="w">    </span>RewriteRule^<span class="w"> </span>https://%<span class="o">{</span>HTTP_HOST<span class="o">}</span>%<span class="o">{</span>REQUEST_URI<span class="o">}</span><span class="w"> </span><span class="o">[</span>L,R<span class="o">=</span><span class="m">301</span><span class="o">]</span>
+&lt;/VirtualHost&gt;
+</code></pre></div>
+<img alt="alt text" src="img/image.png" />
+<strong>Paso 5</strong></p>
+<p>Para que el servidor web Apache pueda hacer la redirección de HTTP a HTTPS es necesario habilitar el módulo rewrite en Apache.
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>a2enmod<span class="w"> </span>rewrite<span class="w">  </span>
+</code></pre></div></p>
+<p><strong>Paso 6</strong></p>
+<p>Reiniciamos el servicio de Apache.ç
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>apache2
+</code></pre></div></p>
+<p><strong>Paso 7</strong></p>
+<p>Una vez llegado a este punto, es necesario comprobar que el puerto 443 está abierto en las reglas del firewall para permitir el tráfico HTTPS.</p>
+<p><strong>Paso 8</strong></p>
+<p>Accede desde un navegador web al nombre de dominio que acabas de configurar. En nuesro caso será: https://iaw245.org</p>
+<p><img alt="alt text" src="img/image-1.png" /></p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky"], "search": "../../../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.4e0fa4ba.min.js"></script>
+      
+    
+  </body>
+</html>

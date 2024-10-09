@@ -1,0 +1,2 @@
+Para solucionar el conflicto tenemos que hacer un git diff nos saldra el error modificaremos el fichero en un editor de texto i una vez 
+modificado hacemos la union de las dos ramas. 
