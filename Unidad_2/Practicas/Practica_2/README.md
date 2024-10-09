@@ -55,6 +55,7 @@ Aquí puedes descargar los scripts necesarios para la práctica.
 
 [Descargar install_lamp.sh](scripts/install_lamp.sh){ .md-button .md-button--primary }
 
+[Descargar setup_selfsigned_certificate.sh](scripts/setup_selfsigned_certificate.sh){ .md-button .md-button--primary }
 
 ### 1.4 Cómo consultar la información del sujeto del certificado
 ```bash
