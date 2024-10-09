@@ -49,7 +49,13 @@ OPENSSL_EMAIL="jorcormic@alu.edu.gva.es"
 
 sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/apache-selfsigned.key -out /etc/ssl/certs/apache-selfsigned.crt -subj "/C=$OPENSSL_COUNTRY/ST=$OPENSSL_PROVINCE/L=$OPENSSL_LOCALITY/O=$OPENSSL_ORGANIZATION/OU=$OPENSSL_ORGUNIT/CN=$OPENSSL_COMMON_NAME/emailAddress=$OPENSSL_EMAIL"
 ```
+#### Descarga de Scripts de la Práctica 2 - Unidad 2
 
+Aquí puedes descargar los scripts necesarios para la práctica.
+
+[Descargar install_lamp.sh](scripts/install_lamp.sh){ .md-button .md-button--primary }
+
+[Descargar setup_selfsigned_certificate.sh](scripts/setup_selfsigned_certificate.sh){ .md-button .md-button--primary }
 
 
 ### 1.4 Cómo consultar la información del sujeto del certificado
