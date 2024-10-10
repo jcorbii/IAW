@@ -26,7 +26,7 @@
 
 2. Escribe la documentación de tu proyecto en formato Markdown.
    
-     La documentacion de el projecto esta ja echa en la practica 1 y la practica 2
+     La documentacion de el projecto esta ya hecha en la practica 1 y la practica 2
 
 3. Genera la página web con MkDocs
    > ` mkdocs new nombre-del-proyecto `

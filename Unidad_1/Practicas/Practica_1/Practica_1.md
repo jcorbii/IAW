@@ -7,7 +7,7 @@
       - Aprendràs el concepte de branca.
       - La gestió i el cicle de vida (creació, modificació, esborrament, …) de branques.
       - Aprendràs el concepte d'unió (*merge) que ens possibilita la fusió de branques.
-      - A solucionar els possibles conflictes que poden aparéixer en el moment del *merge.
+      - A solucionar els possibles conflictes que poden aparéixer en el moment del **merge**.
 
 ## Entrega
 
@@ -21,7 +21,7 @@
    ` $ git checkout primera `
    *Creacion del fichero:*
    ` $ nano fichero `
-    No se ha producido ningun conflicto. Ja que el fichero que estamos añadiendo a la rama **main** no estaba creado.
+    No se ha producido ningun conflicto. Ya que el fichero que estamos añadiendo a la rama **main** no estaba creado.
 3. Borra la rama primera.
    >*Borrar rama primera:*
     ` $ git branch -d primera `
@@ -38,4 +38,4 @@
    ` $ git diff `
 5. Soluciona el conflicto que has creado en el punto anterior y sincroniza la rama segunda en el remoto.
    >*Solucionar el conflicto:*
-   Para solucionar el conflicto hacemos un ` $ git diff ` y saldra donde esta dando el error veremos que el error esta en el fichero que modificamos anteriormente solo tenemos que volver a editar-lo i tendremos solucionado el fallo.
+   Para solucionar el conflicto hacemos un ` $ git diff ` y saldra donde esta dando el error veremos que el error esta en el fichero que modificamos anteriormente solo tenemos que volver a editar-lo y tendremos solucionado el fallo.
