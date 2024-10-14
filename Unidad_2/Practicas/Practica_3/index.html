@@ -16,7 +16,7 @@
     
     
       
-        <title>Practica 1:Implantación de una web estática con Apache - IAW - 2ASIX</title>
+        <title>Practica 03: Instalar, configurar y securizar phpMyAdmin - IAW - 2ASIX</title>
       
     
     
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#practica-1implantacion-de-una-web-estatica-con-apache" class="md-skip">
+        <a href="#practica-03-instalar-configurar-y-securizar-phpmyadmin" class="md-skip">
           Skip to content
         </a>
       
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Practica 1:Implantación de una web estática con Apache
+              Practica 03: Instalar, configurar y securizar phpMyAdmin
             
           </span>
         </div>
@@ -223,7 +223,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="Practica_1/" class="md-tabs__link">
+        <a href="../Practica_1/Practica_1/" class="md-tabs__link">
           
   
   Unidad 2 Implantación de aplicaciones web PHP
@@ -532,7 +532,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Practica_1/" class="md-nav__link">
+      <a href="../Practica_1/Practica_1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -574,7 +574,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Practica_3/Practica_3/" class="md-nav__link">
+      <a href="Practica_3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -630,60 +630,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-configuracio-de-host-virtuals-en-apache2" class="md-nav__link">
+  <a href="#instalacion-de-phpmyadmin" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Configuracio de Host virtuals en Apache2
+      Instalación de phpMyAdmin
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#11-configuracion-pagina-wwwiaw2425org" class="md-nav__link">
+  <a href="#1-configuracion-del-acceso-por-contrasena-para-la-cuenta-root-de-mysql" class="md-nav__link">
     <span class="md-ellipsis">
-      1.1 Configuracion  pagina www.iaw2425.org
+      1. Configuración del Acceso por Contraseña para la Cuenta Root de MySQL
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#12-configuracion-pagina-wwwdocu-iaw2425org" class="md-nav__link">
+  <a href="#2-configuracion-del-acceso-por-contrasena-para-un-usuario-dedicado-de-mysql" class="md-nav__link">
     <span class="md-ellipsis">
-      1.2 Configuracion  pagina www.docu-iaw2425.org
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="1.2 Configuracion pagina www.docu-iaw2425.org">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#modificar-ficher-hosts" class="md-nav__link">
-    <span class="md-ellipsis">
-      Modificar ficher hosts
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pagina-wwwiaw2425org" class="md-nav__link">
-    <span class="md-ellipsis">
-      Pagina www.iaw2425.org
+      2. Configuración del Acceso por Contraseña para un Usuario Dedicado de MySQL
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#pagina-wwwdocu-iaw2425org" class="md-nav__link">
+  <a href="#3-asegurando-tu-instancia-de-phpmyadmin" class="md-nav__link">
     <span class="md-ellipsis">
-      Pagina www.docu-iaw2425.org
+      3. Asegurando tu Instancia de phpMyAdmin
     </span>
   </a>
   
@@ -704,80 +680,150 @@
                   
 
 
-<h1 id="practica-1implantacion-de-una-web-estatica-con-apache">Practica 1:Implantación de una web estática con Apache<a class="headerlink" href="#practica-1implantacion-de-una-web-estatica-con-apache" title="Permanent link">&para;</a></h1>
+<h1 id="practica-03-instalar-configurar-y-securizar-phpmyadmin">Practica 03: Instalar, configurar y securizar phpMyAdmin<a class="headerlink" href="#practica-03-instalar-configurar-y-securizar-phpmyadmin" title="Permanent link">&para;</a></h1>
 <div class="admonition success">
 <p class="admonition-title">Objetivos de la práctica</p>
 <ul>
-<li>Instalar y configurar un servidor web Apache2.</li>
-<li>Crear distintos Host Virtuales en apache2 que nos permiten tener sitios web diferenciados.</li>
-<li>Acceder a cada Host Virtual con un determinado nombre de dominio.</li>
+<li>Instalar, asegurar y configurar phpMyAdmin en un servidor Ubuntu.</li>
+<li>Proteger PhpMyAdmin contra accesos no autorizados.</li>
+<li>Automatizar la instalación y configuración de phpMyAdmin mediante scripts de Bash.</li>
 </ul>
 </div>
-<h3 id="1-configuracio-de-host-virtuals-en-apache2">1. Configuracio de Host virtuals en Apache2<a class="headerlink" href="#1-configuracio-de-host-virtuals-en-apache2" title="Permanent link">&para;</a></h3>
-<p>Crea el directorio para www.iaw2425.org de la siguiente manera:
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/var/www/www.iaw2425.org
-$<span class="w"> </span>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/var/www/www.docu-iaw2425.org
-</code></pre></div>
-A continuación, asigna la propiedad del directorio al usuario con el que has iniciado sesión actualmente con la variable de entorno $USER:
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span><span class="nv">$USER</span>:<span class="nv">$USER</span><span class="w"> </span>/var/www/www.iaw2425.org
-$<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span><span class="nv">$USER</span>:<span class="nv">$USER</span><span class="w"> </span>/var/www/www.docu-iaw2425.org
+<h2 id="instalacion-de-phpmyadmin">Instalación de phpMyAdmin<a class="headerlink" href="#instalacion-de-phpmyadmin" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Instala phpMyAdmin junto con las extensiones PHP necesarias (<code>php-mbstring</code>, <code>php-zip</code>, <code>php-gd</code>, <code>php-json</code>, <code>php-curl</code>).
+    <div class="highlight"><pre><span></span><code><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>update
 </code></pre></div></p>
-<h3 id="11-configuracion-pagina-wwwiaw2425org">1.1 Configuracion  pagina www.iaw2425.org<a class="headerlink" href="#11-configuracion-pagina-wwwiaw2425org" title="Permanent link">&para;</a></h3>
-<p>Para la parte de la Web vamos a copiar el <strong><em>site</em></strong> de nuestra pagina web en <strong><em>Mkdocs</em></strong>. Ya que asi podremos ver algo quando intentemos acceder. </p>
-<p>Para que Apache sirva este contenido, es necesario crear un archivo de host virtual con las directivas correctas. En lugar de modificar el archivo de configuración predeterminado ubicado en <code>/etc/apache2/sites-available/000-default.conf</code> directamente, crea uno nuevo en <code>/etc/apache2/sites-available/www.iaw2425.org.conf</code>:
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/apache2/sites-available/www.iaw2425.org.conf
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>&lt;VirtualHost<span class="w"> </span>*:8080&gt;
-<span class="w">        </span>ServerAdmin<span class="w"> </span>jordi@iaw2425.org
-<span class="w">        </span>ServerName<span class="w"> </span>iaw2425.org
-<span class="w">        </span>ServerAlias<span class="w"> </span>www.iaw2425.org
-<span class="w">        </span>DocumentRoot<span class="w"> </span>/var/www/www.iaw2425.org/site
-<span class="w">        </span>ErrorLog<span class="w"> </span><span class="si">${</span><span class="nv">APACHE_LOG_DIR</span><span class="si">}</span>/error.log
-<span class="w">        </span>CustomLog<span class="w"> </span><span class="si">${</span><span class="nv">APACHE_LOG_DIR</span><span class="si">}</span>/access.log<span class="w"> </span>combined
-&lt;/VirtualHost&gt;
-</code></pre></div>
-<img alt="alt text" src="img/image-2.png" /></p>
-<h3 id="12-configuracion-pagina-wwwdocu-iaw2425org">1.2 Configuracion  pagina www.docu-iaw2425.org<a class="headerlink" href="#12-configuracion-pagina-wwwdocu-iaw2425org" title="Permanent link">&para;</a></h3>
-<p>Para la parte de la Web vamos a copiar el <strong><em>site</em></strong> de nuestra pagina web en <strong><em>Mkdocs</em></strong>. Ya que asi podremos ver algo quando intentemos acceder. </p>
-<p>Para que Apache sirva este contenido, es necesario crear un archivo de host virtual con las directivas correctas. En lugar de modificar el archivo de configuración predeterminado ubicado en <code>/etc/apache2/sites-available/000-default.conf</code> directamente, crea uno nuevo en <code>/etc/apache2/sites-available/www.docu-iaw2425.org.conf</code>:
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/apache2/sites-available/www.docu-iaw2425.org.conf
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>&lt;VirtualHost<span class="w"> </span>*:8081&gt;
-<span class="w">        </span>ServerAdmin<span class="w"> </span>jordi@docu-iaw2425.org
-<span class="w">        </span>ServerName<span class="w"> </span>docu-iaw2425.org
-<span class="w">        </span>ServerAlias<span class="w"> </span>www.docu-iaw2425.org
-<span class="w">        </span>DocumentRoot<span class="w"> </span>/var/www/www.docu-iaw2425.org/site
-<span class="w">        </span>ErrorLog<span class="w"> </span><span class="si">${</span><span class="nv">APACHE_LOG_DIR</span><span class="si">}</span>/error.log
-<span class="w">        </span>CustomLog<span class="w"> </span><span class="si">${</span><span class="nv">APACHE_LOG_DIR</span><span class="si">}</span>/access.log<span class="w"> </span>combined
-&lt;/VirtualHost&gt;
-</code></pre></div>
-<img alt="alt text" src="img/image-3.png" /></p>
-<p>Guarda y cierra el archivo cuando hayas terminado.</p>
-<p>Ahora habilita el archivo con la herramienta a2ensite:
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>a2ensite<span class="w"> </span>www.iaw2425.org.conf
-$<span class="w"> </span>sudo<span class="w"> </span>a2ensite<span class="w"> </span>www.docu-iaw2425.org.conf
-</code></pre></div>
-Deshabilita el sitio predeterminado definido en 000-default.conf:
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>a2dissite<span class="w"> </span><span class="m">000</span>-default.conf
-</code></pre></div>
-A continuación, prueba si hay errores de configuración:
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apache2ctl<span class="w"> </span>configtest
-</code></pre></div>
-Deberías recibir la siguiente salida
-. . .
-Syntax OK
-Reinicia Apache para implementar tus cambios:
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>apache2
+<ul>
+<li><strong>php-mbstring</strong>: Un módulo para gestionar cadenas no ASCII y convertir cadenas a diferentes codificaciones</li>
+<li><strong>php-zip</strong>: Esta extensión soporta la carga de archivos .zip en phpMyAdmin</li>
+<li><strong>php-gd</strong>: Habilita el soporte para la Biblioteca Gráfica GD</li>
+<li><strong>php-json</strong>: Proporciona a PHP soporte para la serialización JSON</li>
+<li><strong>php-curl</strong>: Permite que PHP interactúe con diferentes tipos de servidores usando diferentes protocolos
+<div class="highlight"><pre><span></span><code><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>phpmyadmin<span class="w"> </span>php-mbstring<span class="w"> </span>php-zip<span class="w"> </span>php-gd<span class="w"> </span>php-json<span class="w"> </span>php-curl
+</code></pre></div></li>
+</ul>
+</li>
+<li>
+<p>Configura phpMyAdmin para que funcione con Apache.
+Per a que php funcione en Apache2  tindrem que crear un usuari per a php i donar-li permisos.
+<div class="highlight"><pre><span></span><code><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="k">user</span><span class="w"> </span><span class="s1">&#39;phpmyadmin&#39;</span><span class="nv">@&#39;localhost&#39;</span><span class="w"> </span><span class="k">identified</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="s1">&#39;phpmyadmin&#39;</span><span class="p">;</span>
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">grant</span><span class="w"> </span><span class="k">all</span><span class="w"> </span><span class="k">privileges</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="o">*</span><span class="p">.</span><span class="o">*</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="s1">&#39;phpmyadmin&#39;</span><span class="nv">@&#39;localhost&#39;</span><span class="p">;</span>
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">flush</span><span class="w"> </span><span class="k">privileges</span>
 </code></pre></div></p>
-<h4 id="modificar-ficher-hosts">Modificar ficher hosts<a class="headerlink" href="#modificar-ficher-hosts" title="Permanent link">&para;</a></h4>
-<p>Modifiquem el ficher /etc/hosts:
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/hosts
+</li>
+<li>
+<p>Habilita la extensión mbstring y reinicia Apache.
+Para habilitar explícitamente la extensión PHP mbstring, lo cual puedes hacer escribiendo:
+<div class="highlight"><pre><span></span><code><span class="w"> </span>sudo<span class="w"> </span>phpenmod<span class="w"> </span>mbstring
 </code></pre></div>
-<img alt="alt text" src="img/image-4.png" /></p>
-<h3 id="pagina-wwwiaw2425org"><strong>Pagina www.iaw2425.org</strong><a class="headerlink" href="#pagina-wwwiaw2425org" title="Permanent link">&para;</a></h3>
-<p><img alt="alt text" src="img/image-1.png" /></p>
-<h3 id="pagina-wwwdocu-iaw2425org"><strong>Pagina www.docu-iaw2425.org</strong><a class="headerlink" href="#pagina-wwwdocu-iaw2425org" title="Permanent link">&para;</a></h3>
-<p><img alt="alt text" src="img/image-5.png" />   </p>
+<img alt="alt text" src="img/image.png" />
+<strong>Figura.1</strong> Comprovación phpmyadmin</p>
+</li>
+</ol>
+<h2 id="1-configuracion-del-acceso-por-contrasena-para-la-cuenta-root-de-mysql">1. Configuración del Acceso por Contraseña para la Cuenta Root de MySQL<a class="headerlink" href="#1-configuracion-del-acceso-por-contrasena-para-la-cuenta-root-de-mysql" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Cambia el método de autenticación del usuario root de MySQL de auth_socket a caching_sha2_password o mysql_native_password.</p>
+<ul>
+<li>Accedemos a la base de datos:
+<div class="highlight"><pre><span></span><code><span class="w"> </span>sudo<span class="w"> </span>mysql
+</code></pre></div></li>
+<li>A continuación, verifica qué método de autenticación usa cada una de tus cuentas de usuario de MySQL con el siguiente comando:
+<div class="highlight"><pre><span></span><code><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="k">user</span><span class="p">,</span><span class="n">authentication_string</span><span class="p">,</span><span class="k">plugin</span><span class="p">,</span><span class="k">host</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">mysql</span><span class="p">.</span><span class="k">user</span><span class="p">;</span>
+</code></pre></div></li>
+<li>Cambiar metodo de <strong>authentificación</strong> y contraseña.
+<div class="highlight"><pre><span></span><code><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">ALTER</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="s1">&#39;root&#39;</span><span class="nv">@&#39;localhost&#39;</span><span class="w"> </span><span class="k">IDENTIFIED</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="s1">&#39;caching_sha2_password&#39;</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;Root_pass1&#39;</span><span class="p">;</span>
+</code></pre></div></li>
+</ul>
+</li>
+<li>
+<p>Verifica los métodos de autenticación empleados por cada uno de tus usuarios.</p>
+<ul>
+<li>A continuación, verifica qué método de autenticación usa cada una de tus cuentas de usuario de MySQL con el siguiente comando: 
+<div class="highlight"><pre><span></span><code><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="k">user</span><span class="p">,</span><span class="n">authentication_string</span><span class="p">,</span><span class="k">plugin</span><span class="p">,</span><span class="k">host</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">mysql</span><span class="p">.</span><span class="k">user</span><span class="p">;</span>
+</code></pre></div></li>
+</ul>
+</li>
+</ol>
+<h2 id="2-configuracion-del-acceso-por-contrasena-para-un-usuario-dedicado-de-mysql">2. Configuración del Acceso por Contraseña para un Usuario Dedicado de MySQL<a class="headerlink" href="#2-configuracion-del-acceso-por-contrasena-para-un-usuario-dedicado-de-mysql" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Crea un nuevo usuario de MySQL con una contraseña segura.
+<div class="highlight"><pre><span></span><code><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="k">user</span><span class="w"> </span><span class="s1">&#39;jordiphp&#39;</span><span class="nv">@&#39;localhost&#39;</span><span class="w"> </span><span class="k">identified</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="s1">&#39;jordiphp&#39;</span><span class="p">;</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>Otorga al nuevo usuario los privilegios apropiados para gestionar las bases de datos a través de phpMyAdmin.
+<div class="highlight"><pre><span></span><code><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">grant</span><span class="w"> </span><span class="k">all</span><span class="w"> </span><span class="k">privileges</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="o">*</span><span class="p">.</span><span class="o">*</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="s1">&#39;jordiphp&#39;</span><span class="nv">@&#39;localhost&#39;</span><span class="p">;</span>
+<span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">flush</span><span class="w"> </span><span class="k">privileges</span>
+</code></pre></div>
+<img alt="alt text" src="img/image1.png" /></p>
+</li>
+</ol>
+<h2 id="3-asegurando-tu-instancia-de-phpmyadmin">3. Asegurando tu Instancia de phpMyAdmin<a class="headerlink" href="#3-asegurando-tu-instancia-de-phpmyadmin" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Habilita el uso de sobrescrituras de archivos .htaccess en la configuración de Apache para phpMyAdmin.</p>
+<ul>
+<li>Usa tu editor de texto preferido para editar el archivo phpmyadmin.conf que se ha colocado en el directorio de configuración de Apache. Aquí, usaremos nano:
+<div class="highlight"><pre><span></span><code><span class="w"> </span>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/apache2/conf-available/phpmyadmin.conf
+</code></pre></div></li>
+<li>Agrega una directiva <strong>AllowOverride</strong> All dentro de la sección <Directory /usr/share/phpmyadmin> del archivo de configuración, así:
+<div class="highlight"><pre><span></span><code>&lt;Directory<span class="w"> </span>/usr/share/phpmyadmin&gt;
+<span class="w">        </span>Options<span class="w"> </span>SymLinksIfOwnerMatch
+<span class="w">        </span>DirectoryIndex<span class="w"> </span>index.php
+<span class="w">        </span>AllowOverride<span class="w"> </span>All
+<span class="w">        </span>...<span class="w">  </span><span class="c1"># Otras directivas</span>
+&lt;/Directory&gt;
+</code></pre></div>
+<img alt="alt text" src="img/image2.png" /></li>
+<li>Para implementar los cambios que realizaste, reinicia Apache:
+<div class="highlight"><pre><span></span><code><span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>apache2
+</code></pre></div></li>
+</ul>
+</li>
+<li>
+<p>Crea un archivo .htaccess en el directorio de phpMyAdmin para implementar autenticación básica.</p>
+<ul>
+<li>Para que esto sea exitoso, el archivo debe ser creado dentro del directorio de la aplicación. Puedes crear el archivo necesario y abrirlo en tu editor de texto con privilegios de root escribiendo:
+<div class="highlight"><pre><span></span><code><span class="w"> </span>sudo<span class="w"> </span>nano<span class="w"> </span>/usr/share/phpmyadmin/.htaccess
+</code></pre></div></li>
+<li>Dentro de este archivo, ingresa la siguiente información:
+<div class="highlight"><pre><span></span><code>AuthType<span class="w"> </span>Basic
+AuthName<span class="w"> </span><span class="s2">&quot;Restricted Files&quot;</span>
+AuthUserFile<span class="w"> </span>/etc/phpmyadmin/.htpasswd
+Require<span class="w"> </span>valid-user
+</code></pre></div></li>
+</ul>
+</li>
+<li>
+<p>Crea un archivo .htpasswd para almacenar las credenciales de usuario y contraseña.</p>
+<ul>
+<li>
+<p>Ahora puedes crear este archivo y asignarle un usuario inicial con la utilidad htpasswd:
+<div class="highlight"><pre><span></span><code><span class="w"> </span>sudo<span class="w"> </span>htpasswd<span class="w"> </span>-c<span class="w"> </span>/etc/phpmyadmin/.htpasswd<span class="w"> </span>jordiphp
+</code></pre></div>
+<img alt="alt text" src="img/image3.png" /></p>
+</li>
+<li>
+<p>Si deseas agregar un usuario adicional, debes hacerlo sin la bandera -c, así:
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>htpasswd<span class="w"> </span>/etc/phpmyadmin/.htpasswd<span class="w"> </span>usuarioadicional
+</code></pre></div></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Reinicia Apache para aplicar los cambios.</p>
+<ul>
+<li>Luego, reinicia Apache para aplicar la autenticación de .htaccess:<br />
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>apache2<span class="w"> </span>
+</code></pre></div>
+<img alt="alt text" src="img/image4.png" /></li>
+</ul>
+</li>
+</ol>
 
 
 
