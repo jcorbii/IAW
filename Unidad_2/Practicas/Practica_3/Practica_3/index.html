@@ -639,6 +639,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Instalación de phpMyAdmin">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#como-automatizar-la-instalacion-de-lamp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cómo automatizar la instalación de LAMP
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -724,6 +739,21 @@
       Instalación de phpMyAdmin
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Instalación de phpMyAdmin">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#como-automatizar-la-instalacion-de-lamp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cómo automatizar la instalación de LAMP
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -811,6 +841,32 @@ Para habilitar explícitamente la extensión PHP mbstring, lo cual puedes hacer 
 <strong>Figura.1</strong> Comprovación phpmyadmin</p>
 </li>
 </ol>
+<h3 id="como-automatizar-la-instalacion-de-lamp">Cómo automatizar la instalación de LAMP<a class="headerlink" href="#como-automatizar-la-instalacion-de-lamp" title="Permanent link">&para;</a></h3>
+<p><div class="highlight"><pre><span></span><code><span class="c1"># Instalar PHP</span>
+sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span>-y<span class="w"> </span>
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>php<span class="w"> </span>libapache2-mod-php<span class="w"> </span>-y
+
+<span class="c1"># Paquetes Opcionales</span>
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>php-cli<span class="w"> </span>-y
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>php-cgi<span class="w"> </span>-y
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>php-mysql<span class="w"> </span>-y
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>php-pgsql<span class="w"> </span>-y
+
+<span class="c1"># Instalar phpmyadmin</span>
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>phpmyadmin<span class="w"> </span>php-mbstring<span class="w"> </span>php-zip<span class="w"> </span>php-gd<span class="w"> </span>php-json<span class="w"> </span>php-curl<span class="w"> </span>-y<span class="w">    </span>
+
+<span class="c1"># Acceder a MySQL para modificar configuración</span>
+sudo<span class="w"> </span>mysql<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;UNINSTALL COMPONENT &quot;file://component_validate_password&quot;;&#39;</span>
+
+<span class="c1"># Crear un nuevo usuario en MySQL con todos los privilegios</span>
+sudo<span class="w"> </span>mysql<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;CREATE USER &#39;phpmyadmin&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;phpmyadmin&#39;;&quot;</span>
+sudo<span class="w"> </span>mysql<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;GRANT ALL PRIVILEGES ON *.* TO &#39;phpmyadmin&#39;@&#39;localhost&#39; WITH GRANT OPTION;&quot;</span>
+sudo<span class="w"> </span>mysql<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;FLUSH PRIVILEGES;&quot;</span>
+
+<span class="c1"># Reiniciar servidor Apache</span>
+sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>apache2
+</code></pre></div>
+<a class="md-button md-button--primary" href="../scripts/install_phpmyadmin.sh">Descargar install_phpmyadmin.sh</a></p>
 <h2 id="1-configuracion-del-acceso-por-contrasena-para-la-cuenta-root-de-mysql">1. Configuración del Acceso por Contraseña para la Cuenta Root de MySQL<a class="headerlink" href="#1-configuracion-del-acceso-por-contrasena-para-la-cuenta-root-de-mysql" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
