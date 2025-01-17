@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insertar</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f06, #48f);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #fff;
+        }
+        .form-container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 40px 30px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        h1 {
+            margin: 0 0 20px 0;
+            font-size: 24px;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0 20px 0;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 15px;
+            background: #f06;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background: #e0055e;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Alta de Usuarios</h1>
+        <form action="registrar.php" method="post">
+            <label for="nombre">Ingrese nombre:</label>
+            <input type="text" id="usuario" name="usuario" required><br>
+
+            <label for="edad">Ingrese contrasenya:</label>
+            <input type="text" id="contrasenya" name="contrasenya" required><br>
+
+            <input type="submit" value="Registrar">
+        </form>
+    </div>
+</body>
+</html>
+
