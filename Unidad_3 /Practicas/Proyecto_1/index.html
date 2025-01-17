@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nivel 1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+
+        form {
+            margin: 10px 0;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        .container {
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            width: 300px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Nivel 1</h1>
+        <form action="crearbd.php" method="post">
+            <button name="accion" value="crearbd">Crear BD</button>
+        </form>
+        <form action="registrar.html" method="post">
+            <button name="accion" value="insertar">Registrar</button>
+        </form>
+        <form action="login.html" method="post">
+            <button name="accion" value="login">Login</button>
+        </form>
+    </div>
+</body>
+</html>
