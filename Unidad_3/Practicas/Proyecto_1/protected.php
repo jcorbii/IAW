@@ -8,7 +8,6 @@ session_start();
      header("Location: login.php");
      exit;
 }
-var_dump($_SESSION)
 ?>
 
 <!DOCTYPE html>
